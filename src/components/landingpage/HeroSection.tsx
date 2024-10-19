@@ -1,6 +1,3 @@
-// import video1 from "../public/video1";
-// import video2 from "../public/video2";
-
 import Link from "next/link";
 
 const HeroSection = () => {
@@ -19,14 +16,11 @@ const HeroSection = () => {
         elevate your skills to new heights with personalized guidance.
       </p>
       <div className="flex justify-center my-10">
-        <Link href="/auth">
-          <div className="bg-gradient-to-r from-orange-500 to-orange-800 py-3 px-4 mx-3 rounded-md">
-            Create an account
+        <Link href="/table">
+          <div className="bg-gradient-to-r from-orange-500 to-orange-800 py-3 px-4 mx-3 rounded-md hover:scale-105 hover:from-orange-400 hover:to-orange-700 cursor-pointer transition-colors duration-300">
+            Experience now
           </div>
         </Link>
-        {/* <a href="#" className="py-3 px-4 mx-3 rounded-md border">
-          Documentation
-        </a> */}
       </div>
       <div className="flex mt-10 justify-center">
         <video
@@ -35,7 +29,7 @@ const HeroSection = () => {
           muted
           className="rounded-lg aspect-video w-1/2 border border-orange-700 shadow-sm shadow-orange-400 mx-2 my-4"
         >
-          <source src="./videos/video1.mp4" type="video/mp4" />
+          <source src="./videos/videocut.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <video

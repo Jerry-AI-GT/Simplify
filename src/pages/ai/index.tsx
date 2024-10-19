@@ -1,72 +1,97 @@
-// // pages/index.tsx
-// import { generateContent } from "@/utils/geminiApi";
-// import { useState } from "react";
-
-// const Home: React.FC = () => {
-//   const [inputText, setInputText] = useState("");
-//   const [responseText, setResponseText] = useState("");
-//   const [loading, setLoading] = useState(false);
-
-//   const handleGenerate = async () => {
-//     setLoading(true);
-//     try {
-//       const result = await generateContent(inputText);
-//       console.log(result);
-//       setResponseText(
-//         result.candidates[0].content.parts[0]?.text || "No content generated."
-//       );
-//     } catch (error) {
-//       setResponseText("Error generating content.");
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <h1>Gemini Content Generator</h1>
-//       <textarea
-//         value={inputText}
-//         onChange={(e) => setInputText(e.target.value)}
-//         placeholder="Enter text"
-//       />
-//       <button onClick={handleGenerate} disabled={loading}>
-//         {loading ? "Generating..." : "Generate Content"}
-//       </button>
-
-//       {responseText && (
-//         <div>
-//           <h2>Generated Content:</h2>
-//           <p>{responseText}</p>
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default Home;
-// AnotherPage.tsx
+import React, { useEffect, useState } from "react";
 import { apiResult } from "@/components/Workspace/Playground/Playground";
-import React from "react";
-// Adjust the import path according to your project structure
 
-const AnotherPage = () => {
-  let content = "No content generated.";
+const formatApiResponse = (apiResponse: string): string => {
+  let formattedResponse = apiResponse;
 
-  // Check if apiResult is a string and parse it, or if it's an object, use it directly
-  try {
-    const parsedResult =
-      typeof apiResult === "string" ? JSON.parse(apiResult) : apiResult;
-    content =
-      parsedResult?.candidates?.[0]?.content?.parts?.[0]?.text || content;
-  } catch (error) {
-    console.error("Error parsing apiResult:", error);
-  }
+  formattedResponse = formattedResponse.replace(
+    /\*\*(.*?)\*\*/g,
+    `<strong class="bg-gradient-to-r from-orange-500 to-red-800 text-transparent bg-clip-text">$1</strong>`
+  );
+
+  formattedResponse = formattedResponse.replace(
+    /(https?:\/\/[^\s]+)/g,
+    `<a href="$1" target="_blank" class="text-blue-500 hover:text-orange-500">$1</a>`
+  );
+
+  formattedResponse = formattedResponse.replace(/\n/g, "<br>");
+
+  return formattedResponse;
+};
+
+const AnotherPage: React.FC = () => {
+  const [content, setContent] = useState<string>("Standing by for your code!");
+  const [formattedContent, setFormattedContent] = useState<string>("");
+  const [isTypingDone, setIsTypingDone] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (apiResult) {
+      try {
+        const parsedResult =
+          typeof apiResult === "string" ? JSON.parse(apiResult) : apiResult;
+        const newContent =
+          parsedResult?.candidates?.[0]?.content?.parts?.[0]?.text ||
+          "No content received from API.";
+
+        setContent(newContent);
+        setFormattedContent("");
+        setIsTypingDone(false);
+      } catch (error) {
+        console.error("Error parsing apiResult:", error);
+        setContent("Error parsing API result.");
+      }
+    }
+  }, [apiResult]);
+
+  useEffect(() => {
+    let currentIndex = 0;
+
+    const typeText = () => {
+      if (currentIndex < content.length) {
+        setFormattedContent((prev) =>
+          formatApiResponse(content.substring(0, currentIndex + 1))
+        );
+
+        currentIndex++;
+        setTimeout(typeText, 25); // Typing effect speed
+      } else {
+        setIsTypingDone(true); // Typing finished
+      }
+    };
+
+    if (content && !isTypingDone) {
+      setFormattedContent("");
+      typeText();
+    }
+  }, [content, isTypingDone]);
+
+  const clearContent = () => {
+    setContent("");
+    setFormattedContent("");
+    setIsTypingDone(true);
+  };
 
   return (
     <div>
-      <h1>API Result</h1>
-      <pre>{content}</pre>
+      <div className="flex items-center justify-between">
+        <div className="bg-gradient-to-r text-2xl from-orange-500 to-red-800 text-transparent bg-clip-text">
+          JERRY AI
+        </div>
+        <button
+          onClick={clearContent}
+          className=" my-2 bg-gradient-to-r  from-orange-500 to-red-800 px-2 py-1 rounded text-white hover:from-orange-400 hover:to-orange-700 cursor-pointer transition-colors duration-300"
+        >
+          Clear Content
+        </button>
+      </div>
+      <div className="p-4">
+        <div>
+          <div
+            dangerouslySetInnerHTML={{ __html: formattedContent }}
+            className="whitespace-pre-wrap"
+          />
+        </div>
+      </div>
     </div>
   );
 };

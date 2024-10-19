@@ -1,16 +1,9 @@
 import { BotMessageSquare } from "lucide-react";
-import { BatteryCharging } from "lucide-react";
-import { Fingerprint } from "lucide-react";
-import { ShieldHalf } from "lucide-react";
-import { PlugZap } from "lucide-react";
-import { GlobeLock } from "lucide-react";
-
-import user1 from "./profile-pictures/user1.jpg";
-import user2 from "./profile-pictures/user2.jpg";
-import user3 from "./profile-pictures/user3.jpg";
-import user4 from "./profile-pictures/user4.jpg";
-import user5 from "./profile-pictures/user5.jpg";
-import user6 from "./profile-pictures/user6.jpg";
+import { ChevronsLeftRight } from "lucide-react";
+import { AppWindow } from "lucide-react";
+import { AppWindowMac } from "lucide-react";
+import { BrainCircuit } from "lucide-react";
+import { Braces } from "lucide-react";
 
 export const navItems = [
   { label: "Features", href: "#" },
@@ -66,31 +59,31 @@ export const features = [
       "Receive real-time insights on your code. Identify errors, optimize performance, and understand best practices as you code.",
   },
   {
-    icon: <Fingerprint />,
+    icon: <AppWindow />,
     text: "Interactive Problem Solving",
     description:
       "Engage in hands-on coding challenges designed to test and enhance your skills. Get immediate feedback and learn through practice.",
   },
   {
-    icon: <ShieldHalf />,
+    icon: <AppWindowMac />,
     text: "Built-in Starter Code",
     description:
       "Jumpstart your coding journey with pre-written code templates. These templates provide a strong foundation for tackling programming challenges, allowing you to focus on solving problems rather than setting up boilerplate code.",
   },
   {
-    icon: <BatteryCharging />,
+    icon: <ChevronsLeftRight />,
     text: "Test Cases",
     description:
       "Ensure your code is rock-solid with comprehensive test cases.",
   },
   {
-    icon: <PlugZap />,
+    icon: <BrainCircuit />,
     text: "AI-Powered Code Recommendations",
     description:
       "Leverage AI to get smart code suggestions and improvements. Write cleaner, more efficient code with JERRY AI's guidance.",
   },
   {
-    icon: <GlobeLock />,
+    icon: <Braces />,
     text: "In-Depth Code Analysis",
     description:
       "Receive detailed feedback on your code's structure, logic, and efficiency. JERRY AI's thorough analysis helps you refine your skills and write better code with each challenge.",

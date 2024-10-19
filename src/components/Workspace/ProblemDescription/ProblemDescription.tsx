@@ -345,12 +345,7 @@ const ProblemDescription: React.FC<ProblemDescriptionProps> = ({
             </div>
           </div>
         </div>
-        <div className="w-full px-5 overflow-auto text-white">
-          {/* <Home />
-          <div>
-            <h1>API Result</h1>
-            <pre>{content}</pre>
-          </div> */}
+        <div className="w-full jerry px-5 overflow-auto text-white">
           <AnotherPage />
         </div>
       </Split>

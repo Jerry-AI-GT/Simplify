@@ -111,25 +111,24 @@ const Playground: React.FC<PlaygroundProps> = ({
               {
                 parts: [
                   {
-                    text: `Provide in concise manner (max = 10lines)
-1.	time complexity[optional]
-2.	space complexity[optional]
-3.	Best practices
-4.	Tips to improve programming skill
-5.	functionality[optional]
-6.	Readability and Maintainability[optional]
-7.	Code Structure and Design[optional]
-8.	Performance and Efficiency[optional]
-9.	Error Handling and Logging[optional]
-10.	Security[optional]
-11.	Test Coverage[optional]
-12.	Code Reuse and Dependencies[optional]
-13.	Concept related web link[optional]
-14.	Detect code smells[optional]
-15.	Tell weaknesses and gaps[optional]
-Of this code 
-
- ${userCode}`,
+                    text: `Provide in concise manner (max = 10 lines)
+                      1.	time complexity[optional]
+                      2.	space complexity[optional]
+                      3.	Best practices
+                      4.	Tips to improve programming skill
+                      5.	Tell weaknesses and gaps[optional]
+                      6.	functionality[optional]
+                      7.  Readability and Maintainability[optional]
+                      8.	Code Structure and Design[optional]
+                      9.	Performance and Efficiency[optional]
+                      10.	Error Handling and Logging[optional]
+                      11.	Security[optional]
+                      12.	Test Coverage[optional]
+                      13.	Code Reuse and Dependencies[optional]
+                      14.	Concept related web link[optional]
+                      15.	Detect code smells[optional]	
+                      Of this code 
+                      ${userCode}`,
                   },
                 ],
               },
@@ -229,5 +228,4 @@ Of this code
   );
 };
 
-// Exporting the apiResult for use elsewhere
 export { Playground, apiResult };

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { BsCheckCircle } from "react-icons/bs";
 import { AiFillYoutube } from "react-icons/ai";
 import { IoClose } from "react-icons/io5";
+
 import YouTube from "react-youtube";
 import {
   collection,
@@ -45,7 +46,7 @@ const ProblemsTable: React.FC<ProblemsTableProps> = ({
 
   return (
     <>
-      <tbody className="text-white">
+      <tbody className="text-white relative backdrop-blur-lg">
         {problems.map((problem, idx) => {
           const difficulyColor =
             problem.difficulty === "Easy"
@@ -55,7 +56,7 @@ const ProblemsTable: React.FC<ProblemsTableProps> = ({
               : "text-dark-pink";
           return (
             <tr
-              className={`${idx % 2 == 1 ? "bg-dark-layer-1" : ""}`}
+              className={`${idx % 2 == 1 ? "bg-gray-800" : " "}`}
               key={problem.id}
             >
               <th className="px-2 py-4 font-medium whitespace-nowrap text-dark-green-s">
@@ -67,14 +68,14 @@ const ProblemsTable: React.FC<ProblemsTableProps> = ({
                 {problem.link ? (
                   <Link
                     href={problem.link}
-                    className="hover:text-blue-600 cursor-pointer"
+                    className="hover:text-orange-500 cursor-pointer"
                     target="_blank"
                   >
                     {problem.title}
                   </Link>
                 ) : (
                   <Link
-                    className="hover:text-blue-600 cursor-pointer"
+                    className="hover:text-orange-500 cursor-pointer"
                     href={`/problems/${problem.id}`}
                   >
                     {problem.title}
@@ -89,7 +90,7 @@ const ProblemsTable: React.FC<ProblemsTableProps> = ({
                 {problem.videoId ? (
                   <AiFillYoutube
                     fontSize={"28"}
-                    className="cursor-pointer hover:text-red-600"
+                    className="cursor-pointer  hover:text-orange-500"
                     onClick={() =>
                       setYoutubePlayer({
                         isOpen: true,
