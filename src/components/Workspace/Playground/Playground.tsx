@@ -138,7 +138,7 @@ const Playground: React.FC<PlaygroundProps> = ({
       );
       const data = await response.json();
       apiResult = data;
-      console.log(apiResult);
+      
     } catch (error) {
       console.error("Error calling API:", error);
     }
