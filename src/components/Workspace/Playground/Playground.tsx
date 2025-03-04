@@ -111,7 +111,7 @@ const Playground: React.FC<PlaygroundProps> = ({
               {
                 parts: [
                   {
-                    text: `Provide in concise manner (max = 10 lines)
+                    text: `Analyse and provide in concise manner (max = 10 lines) with a point between [1 to 10],
                       1.	time complexity[optional]
                       2.	space complexity[optional]
                       3.	Best practices
@@ -128,7 +128,7 @@ const Playground: React.FC<PlaygroundProps> = ({
                       14.	Concept related web link[optional]
                       15.	Detect code smells[optional]	
                       Of this code 
-                      ${userCode}`,
+                      ${userCode}. write some snippet of code if only it is necessary otherwise don't`,
                   },
                 ],
               },
