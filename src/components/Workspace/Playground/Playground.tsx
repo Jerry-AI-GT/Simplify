@@ -125,7 +125,7 @@ const Playground: React.FC<PlaygroundProps> = ({
                       11.	Security[optional]
                       12.	Test Coverage[optional]
                       13.	Code Reuse and Dependencies[optional]
-                      14.	Concept related web link[optional]
+                      14.	Concept related web link
                       15.	Detect code smells[optional]	
                       Of this code 
                       ${userCode}. write some snippet of code if only it is necessary otherwise don't`,
