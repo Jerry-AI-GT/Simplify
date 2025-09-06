@@ -1,1 +1,1 @@
-### Built With React, NextJS, TypeScript, TailwindCSS, Firebase
+### Built with technologies such as React, NextJS, TypeScript, TailwindCSS, Firebase
