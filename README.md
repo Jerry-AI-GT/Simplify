@@ -26,7 +26,7 @@ The project is deployed and live!
 * **Language:** TypeScript
 * **Styling:** Tailwind CSS
 * **Database & Auth:** Firebase
-* **AI Integration:** OpenAI API
+* **AI Integration:** Google Gemini Flash 1.5 API
 * **Deployment:** Vercel
 
 ---
