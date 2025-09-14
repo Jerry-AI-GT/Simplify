@@ -61,5 +61,5 @@ Contributions, issues, and feature requests are welcome! If you'd like to contri
 
 ### Clone the repo
 ```bash
-git clone [https://github.com/Jerry-AI-GT/Simplify.git](https://github.com/Jerry-AI-GT/Simplify.git)
+git clone https://github.com/Jerry-AI-GT/Simplify.git
 cd Simplify
